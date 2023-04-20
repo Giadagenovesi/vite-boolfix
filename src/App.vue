@@ -14,6 +14,7 @@ export default {
     methods: {
         handleSearch () {
             this.getMovies();
+            this.getTvSeries();
         },
         getMovies() {
             axios.get (this.store.apiMovieURL, {
@@ -23,9 +24,20 @@ export default {
                 }
             }).then((resp) => {
                 console.log(resp);
-                this.store.movies = resp.data.results,
-                this.store.searchedTitle = ""
+                this.store.movies = resp.data.results
             })
+        },
+        getTvSeries() {
+            axios.get (this.store.apiTvSeriesURL, {
+                params: {
+                    api_key: this.store.apiKey,
+                    query: this.store.searchedTitle,
+                }
+            }).then((resp) => {
+                console.log(resp);
+                this.store.tvSeries = resp.data.results
+            })
+
         }
     } 
 } 
