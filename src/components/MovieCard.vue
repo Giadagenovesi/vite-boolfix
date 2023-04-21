@@ -15,6 +15,11 @@ export default {
         getImagePath(imgPath) {
             return new URL (imgPath, import.meta.url).href;
         }
+    },
+    computed: {
+        getRatingMovie() {
+            return Math.ceil(this.movie.vote_average/ 2)
+        }
     }
 }
 </script>
@@ -28,13 +33,17 @@ export default {
         <div class="card-body">
             <h4>{{ movie.title }} </h4>
             <h5>{{ movie.original_title }} </h5>
-            <div>
+            <div class="language">
                 <span v-if="movie.original_language === 'it'">Lingua: <img src="../assets/img/italy-flag.png" alt="" ></span>
                 <span v-else-if="movie.original_language === 'en'">Lingua: <img src="../assets/img/usa-flag.jpg" alt="" ></span> 
                 <span v-else-if="movie.original_language === 'fr'">Lingua: <img src="../assets/img/france-flag.png" alt="" ></span>
                 <h6 v-else>Lingua:{{ movie.original_language }}</h6>
             </div>
-            <p>{{ movie.vote_average }}</p>
+            <div class="rating">
+                <p>Valutazione: {{ getRatingMovie}}</p>
+                <i v-for="num in getRatingMovie" :key="num" class="fa-solid fa-star"></i>
+                <i v-for="num in (5 - getRatingMovie)" class="fa-regular fa-star"></i>
+            </div>
         </div>
     </div>
 </template>
