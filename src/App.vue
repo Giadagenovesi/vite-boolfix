@@ -46,10 +46,13 @@ export default {
 </script>
 
 <template>
-    <AppHeader @search="handleSearch" />
-    <AppMain />
+    <div class="ms_wrapper">
+        <AppHeader @search="handleSearch" />
+        <AppMain />
+    </div>
 </template>
 
 <style lang="scss">
 @use "./styles/general.scss"
+
 </style>

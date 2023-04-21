@@ -17,8 +17,9 @@ export default {
 </script>
 
 <template>
-    <div class="container">
-        <h2>Film</h2>
+    <main>
+        <div class="container">
+        <h2 class="mb-3">FILM</h2>
         <div class="container-fluid">
             <div class="row row-cols-4">
                 <div class="col mb-4" v-for="movie in store.movies">
@@ -26,7 +27,7 @@ export default {
                 </div>
             </div>
         </div>
-        <h2>TV Series</h2>
+        <h2 class="mb-3">SERIE TV</h2>
         <div class="container-fluid">
             <div class="row row-cols-4">
                 <div class="col mb-4" v-for="series in store.tvSeries">
@@ -34,7 +35,19 @@ export default {
                 </div>
             </div>
         </div>
-    </div>
+        </div>
+    </main>
+    
 </template>
+
+<style scoped lang="scss">
+    main{
+        height: calc(100% - 80px);
+        padding-top: 7rem;
+        h2 {
+            color: #dc3545;
+        }
+    }
+</style>
 
 

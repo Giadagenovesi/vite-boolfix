@@ -14,11 +14,30 @@ export default {
 </script>
 
 <template>
-    <div class="container">
-        <h1>Boolflix</h1>
-        <input type="text" v-model.trim="store.searchedTitle">
-        <button @click="$emit('search')" >cerca</button>
-    </div>
-    
-    
+    <header>
+        <div class="container d-flex align-items-center justify-content-between" >
+            <h1>BOOLFLIX</h1>
+            <div>
+                <input type="text" class="rounded" placeholder="Inizia la tua ricerca" v-model.trim="store.searchedTitle">
+                <button @click="$emit('search')" class="btn btn-outline-danger ms-2 ">CERCA</button>
+            </div>
+        </div>   
+    </header>
 </template>
+<style scoped lang="scss">
+header {
+    background-color: black;
+    height: 80px;
+    padding: 1rem;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+    h1 {
+        color: #dc3545;
+        font-size: 3.5rem;
+    }
+}
+</style>
