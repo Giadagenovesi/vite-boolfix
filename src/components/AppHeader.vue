@@ -14,8 +14,11 @@ export default {
 </script>
 
 <template>
-    <h1>Boolflix</h1>
-    <input type="text" v-model.trim="store.searchedTitle">
-    <button @click="$emit('search')" >cerca</button>
+    <div class="container">
+        <h1>Boolflix</h1>
+        <input type="text" v-model.trim="store.searchedTitle">
+        <button @click="$emit('search')" >cerca</button>
+    </div>
+    
     
 </template>
